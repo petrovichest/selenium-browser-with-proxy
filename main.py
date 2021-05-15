@@ -31,7 +31,7 @@ class SeleniumChromeBrowser:
                 chrome_options.add_argument('--proxy-server=' + proxy_ip + ':' + proxy_port)
 
         # chrome_options.add_extension('chrome_extensions\\fingerprint.crx')
-        # chrome_options.add_extension('chrome_extensions\\font.crx')
+        chrome_options.add_extension(f'{os.getcwd()}/extensions/spoof.crx')
         # chrome_options.add_extension('chrome_extensions\\webgl.crx')
         # chrome_options.add_extension('chrome_extensions\\random_useragent.crx')
         # chrome_options.add_argument('--ignore-certificate-errors')
@@ -121,5 +121,7 @@ if __name__ == '__main__':
     proxy = input('Вставьте прокси с паролем: ')
     # proxy = '46.8.192.8:5500@bnAMEc:0LFtD4yMAa'
     driver = SeleniumChromeBrowser(proxy=proxy).driver
-    driver.get('https://2ip.ru')
-    input(123123)
+    driver.get('https://whoer.net/')
+
+    input('Чтобы закрыть браузер нажмите ENTER')
+    driver.close()
